@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intrusion Detection Input</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        width: 50%;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      .container h1 {
+        text-align: center;
+        color: #333;
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .submit-btn {
+        width: 100%;
+        padding: 1rem;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .submit-btn:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Intrusion Detection Input Form</h1>
+      <form method="POST" action="/predict">
+        <div class="form-group">
+          <label for="flow_duration">Flow Duration</label>
+          <input
+            type="number"
+            id="flow_duration"
+            name="flow_duration"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="total_fwd_packets">Total Fwd Packets</label>
+          <input
+            type="number"
+            id="total_fwd_packets"
+            name="total_fwd_packets"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="total_backward_packets">Total Backward Packets</label>
+          <input
+            type="number"
+            id="total_backward_packets"
+            name="total_backward_packets"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="flow_bytes_per_s">Flow Bytes/s</label>
+          <input
+            type="number"
+            id="flow_bytes_per_s"
+            name="flow_bytes_per_s"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="flow_packets_per_s">Flow Packets/s</label>
+          <input
+            type="number"
+            id="flow_packets_per_s"
+            name="flow_packets_per_s"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="min_packet_length">Min Packet Length</label>
+          <input
+            type="number"
+            id="min_packet_length"
+            name="min_packet_length"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="max_packet_length">Max Packet Length</label>
+          <input
+            type="number"
+            id="max_packet_length"
+            name="max_packet_length"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="packet_length_mean">Packet Length Mean</label>
+          <input
+            type="number"
+            id="packet_length_mean"
+            name="packet_length_mean"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="packet_length_std">Packet Length Std</label>
+          <input
+            type="number"
+            id="packet_length_std"
+            name="packet_length_std"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="fwd_iat_mean">Fwd IAT Mean</label>
+          <input type="number" id="fwd_iat_mean" name="fwd_iat_mean" required />
+        </div>
+        <div class="form-group">
+          <label for="fwd_iat_std">Fwd IAT Std</label>
+          <input type="number" id="fwd_iat_std" name="fwd_iat_std" required />
+        </div>
+        <div class="form-group">
+          <label for="fwd_iat_max">Fwd IAT Max</label>
+          <input type="number" id="fwd_iat_max" name="fwd_iat_max" required />
+        </div>
+        <div class="form-group">
+          <label for="fwd_iat_min">Fwd IAT Min</label>
+          <input type="number" id="fwd_iat_min" name="fwd_iat_min" required />
+        </div>
+        <div class="form-group">
+          <label for="bwd_iat_mean">Bwd IAT Mean</label>
+          <input type="number" id="bwd_iat_mean" name="bwd_iat_mean" required />
+        </div>
+        <div class="form-group">
+          <label for="bwd_iat_std">Bwd IAT Std</label>
+          <input type="number" id="bwd_iat_std" name="bwd_iat_std" required />
+        </div>
+        <div class="form-group">
+          <label for="bwd_iat_max">Bwd IAT Max</label>
+          <input type="number" id="bwd_iat_max" name="bwd_iat_max" required />
+        </div>
+        <div class="form-group">
+          <label for="bwd_iat_min">Bwd IAT Min</label>
+          <input type="number" id="bwd_iat_min" name="bwd_iat_min" required />
+        </div>
+        <div class="form-group">
+          <label for="syn_flag_count">SYN Flag Count</label>
+          <input
+            type="number"
+            id="syn_flag_count"
+            name="syn_flag_count"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="rst_flag_count">RST Flag Count</label>
+          <input
+            type="number"
+            id="rst_flag_count"
+            name="rst_flag_count"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="psh_flag_count">PSH Flag Count</label>
+          <input
+            type="number"
+            id="psh_flag_count"
+            name="psh_flag_count"
+            required
+          />
+        </div>
+        <button type="submit" class="submit-btn">Predict</button>
+      </form>
+    </div>
+  </body>
+</html>
